@@ -3,6 +3,8 @@
  */
 import java.util.Iterator;
 import java.util.TreeMap;
+import java.util.regex.Pattern;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject; 
 import org.json.simple.parser.JSONParser;
@@ -44,11 +46,19 @@ public class WordCounter {
 		//Remove leading/trailing spaces
 		String strippedWords = words.trim();
 		
-		//Replace any occurrences of 1..n spaces with one space
+		
+		
+		//Replace any occurrences of 1..n spaces with one space and all the punctuation
+		strippedWords = strippedWords.replaceAll("\\p{Punct}", "");
+
 		strippedWords = strippedWords.replaceAll("\\s+"," ");
+		
 		
 		//Split on the single spaces remaining
 		String[] splitStrings = strippedWords.split(" ");
+		
+
+		
 
 		/**
 		 * For each word in words put/update it to the TreeMap with either

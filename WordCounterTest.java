@@ -70,6 +70,36 @@ public class WordCounterTest {
 	}
 	
 	/**
+	 * Test to ensure we have correctly removed any punctuation
+	 */
+	@Test
+	public void countWordsPunctuationRemoved() {
+		expectedTreeMap.put("beta", 1);
+		expectedTreeMap.put("alpha", 2);
+		expectedTreeMap.put("delta", 3);
+		expectedTreeMap.put("gamma", 4);
+			
+		TreeMap<String, Integer> actual = WordCounter.countWords(("delta gamma. alpha, delta{ gamma beta delta gamma alpha gamma"));
+				
+		assertEquals(actual, expectedTreeMap);
+	}
+	
+	/**
+	 * Test to ensure we have correctly lowercased everything
+	 */
+	@Test
+	public void countWordsAllLower() {
+		expectedTreeMap.put("beta", 1);
+		expectedTreeMap.put("alpha", 2);
+		expectedTreeMap.put("delta", 3);
+		expectedTreeMap.put("gamma", 4);
+			
+		TreeMap<String, Integer> actual = WordCounter.countWords(("delta gamma alpha Delta gamma Beta delta Gamma alpha gamma"));
+				
+		assertEquals(actual, expectedTreeMap);
+	}
+	
+	/**
 	 * Test to ensure the counting of words is correct
 	 */
 	@Test
