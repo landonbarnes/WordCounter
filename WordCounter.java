@@ -3,7 +3,6 @@
  */
 import java.util.Iterator;
 import java.util.TreeMap;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject; 
 import org.json.simple.parser.JSONParser;
@@ -55,9 +54,10 @@ public class WordCounter {
 		 * For each word in words put/update it to the TreeMap with either
 		 * 1. a default value of 0+1 if the key did not exist or 
 		 * 2. if the key already exists the key's value + 1
+		 * Using all lower case values of the words. 
 		*/
 		for(int i =0; i < splitStrings.length; i++){
-			toReturn.put(splitStrings[i],toReturn.getOrDefault(splitStrings[i], 0)+1);
+			toReturn.put(splitStrings[i].toLowerCase(),toReturn.getOrDefault(splitStrings[i].toLowerCase(), 0)+1);
 		}
 
 		return toReturn;
