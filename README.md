@@ -13,4 +13,4 @@ When compiling WordCounter.java ensure that the json-simple-1.1.1.jar is include
 When compiling WordCounterTest.java ensure that all of the prerequisite listed jar files are included in the class path.
 
 # Run
-To run the WordCounter enter one string argument such as: "{ \\"para\" : \"beta alpha gamma delta alpha\" }"
+To run the WordCounter enter one string argument such as: "{ \\"para\\" : \\"beta alpha gamma delta alpha\\" }"
